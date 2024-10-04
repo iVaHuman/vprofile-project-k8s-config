@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vprofile-web-deployment
+  labels:
+    app: vprofile-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vprofile-web
+  template:
+    metadata:
+      labels:
+        app: vprofile-web
+    spec:
+      containers:
+        - name: web
+          image: ivahuman/vprofile-web:latest # تصویر Docker وب‌سرور
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vprofile-web-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: vprofile-web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
