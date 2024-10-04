@@ -16,12 +16,12 @@ spec:
     spec:
       containers:
         - name: db
-          image: ivahuman/vprofile-db:latest # تصویر Docker دیتابیس
+          image: ivahuman/vprofile-db:latest 
           ports:
             - containerPort: 3306
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: "root_password" # گذرواژه دیتابیس
+              value: "vprodbpass"
             - name: MYSQL_DATABASE
               value: "vprofile"
           resources:
