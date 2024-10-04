@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: ivahuman/vprofile-web:latest # تصویر Docker وب‌سرور
+          image: ivahuman/vprofile-web:latest
           ports:
             - containerPort: 80
           resources:
